@@ -1,38 +1,33 @@
-# CollegeBot  --  End-to-End Production RAG Chatbot
-# ===================================================
+# CollegeBot RAG — AI-Powered College Information Chatbot
 
-> "The value of an idea lies in the using of it."  -- Thomas Edison
 
-CollegeBot is a production-grade Retrieval-Augmented Generation (RAG)
-chatbot for college information retrieval.  It is built entirely on free
-resources: Google Colab Free Tier, Hugging Face Hub, Groq Cloud, and
-Streamlit Community Cloud.
+CollegeBot RAG is an AI-powered college information chatbot built using Retrieval-Augmented Generation (RAG). It retrieves relevant information from college documents and generates context-aware answers for student queries.
+
+The project uses Python, Streamlit, LangChain, FAISS, ChromaDB, Groq Cloud, Hugging Face, and Google Colab.
 
 ---
-
 ## Project Structure
 
-```
-collegebot-rag/
-    app.py                      Streamlit application entry point
-    llm_factory.py              Multi-LLM factory (Groq, Phi-3, Mistral)
-    ingest.py                   Data ingestion and FAISS vector store builder
-    generate_dataset.py         Synthetic Q-A dataset generator for fine-tuning
-    requirements.txt            Python dependencies for Streamlit Cloud
-    .env.example                Environment variable template
-    .streamlit/
-        config.toml             Streamlit theme and server config
-        secrets.toml            Secret keys template (do not commit)
-    data/                       Place your college PDFs here
-    faiss_store/                Persistent FAISS index (auto-generated)
-    dataset/                    Generated fine-tuning dataset (JSONL)
-    evaluation/
-        quick_score.py          Heuristic inline scoring (sub-10 ms)
-        ragas_eval.py           Full RAGAS evaluation script
-        __init__.py
-    notebooks/
-        CollegeBot_Colab.py     Colab notebook cells as a Python file
-```
+```text
+CollegeBot-rag/
+│
+├── app.py                      # Streamlit application entry point
+├── llm_factory.py              # Multi-LLM configuration
+├── ingest.py                   # Data ingestion and FAISS vector store builder
+├── generate_dataset.py         # Synthetic Q-A dataset generator
+├── requirements.txt            # Project dependencies
+├── .env.example                # Environment variable template
+├── .gitignore                  # Files ignored by Git
+│
+├── .streamlit/
+│   └── config.toml             # Streamlit theme configuration
+│
+├── data/                       # College PDFs and source documents
+├── dataset/                    # Generated fine-tuning dataset
+├── evaluation/                 # Evaluation scripts and results
+├── notebooks/                  # Colab experiments and notebooks
+├── faiss_store/                # Persistent FAISS vector index
+└── chroma_db/                  # ChromaDB vector database
 
 ---
 
@@ -57,7 +52,7 @@ After registering:
 2. Go to https://console.groq.com -> API Keys -> Create API Key.
    Save it as GROQ_API_KEY.
 
-3. Create a new public GitHub repository named `collegebot-rag` at https://github.com/Techy-A/collegebot-rag
+3. Project GitHub Repository: https://github.com/Gazal-singla/CollegeBot-rag
 
 ---
 
@@ -205,8 +200,8 @@ PHI3_MODEL_ID and MISTRAL_MODEL_ID environment variables.
 
 ### 3.1 Set up environment
 
-    git clone https://github.com/Techy-A/collegebot-rag.git
-    cd collegebot-rag
+    git clone https://github.com/Gazal-singla/CollegeBot-rag.git
+    cd CollegeBot-rag
     python -m venv venv
     source venv/bin/activate       # Windows: venv\Scripts\activate
     pip install -r requirements.txt
@@ -289,7 +284,7 @@ Iteration 2 (after fixes, typically meets all targets):
     git init
     git add .
     git commit -m "Initial commit: CollegeBot production RAG"
-    git remote add origin https://github.com/Techy-A/collegebot-rag.git
+    git remote add origin https://github.com/Gazal-singla/CollegeBot-rag.git
     git push -u origin main
 
 Important: Do NOT commit .env or .streamlit/secrets.toml.
@@ -315,7 +310,7 @@ exception: add faiss_store/ to the repository (or upload it separately).
 
 1. Go to https://share.streamlit.io
 2. Click "New app"
-3. Select your GitHub repository: your-username/collegebot-rag
+3. Select your GitHub repository: Gazal-singla/CollegeBot-rag
 4. Set Main file path: app.py
 5. Click "Advanced settings"
 6. Under Secrets, paste (TOML format):
@@ -328,7 +323,7 @@ exception: add faiss_store/ to the repository (or upload it separately).
 8. Wait 3-5 minutes for the first deployment to complete.
 
 Your app is now live at:
-    https://your-username-collegebot-rag-app-xxxx.streamlit.app
+    https://gazal-singla-collegebot-rag.streamlit.app
 
 ### 5.3 Optional: HF Inference Endpoints for fine-tuned models
 
@@ -392,6 +387,11 @@ when the "phi3-mini-finetuned" option is selected.
     It happens once per session.  Subsequent queries are significantly faster.
 
 ---
+## Author
+
+**Gazal Singla**  
+B.Tech Electronics and Computer Engineering Student  
+GitHub: https://github.com/Gazal-singla
 
 ## License
 
