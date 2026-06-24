@@ -28,7 +28,7 @@ CollegeBot-rag/
 ├── notebooks/                  # Colab experiments and notebooks
 ├── faiss_store/                # Persistent FAISS vector index
 └── chroma_db/                  # ChromaDB vector database
-
+```
 ---
 
 ## Phase 0: Pre-requisites (15 minutes)
